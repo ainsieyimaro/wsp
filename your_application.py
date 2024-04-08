@@ -1,9 +1,9 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 
-your_application = Flask(__name__)
+app = Flask(__name__)
 
-@your_application.route("/webhook", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook():
     message_body = request.form.get('Body', '')
     resp = MessagingResponse()
@@ -17,5 +17,4 @@ def webhook():
     return str(resp)
 
 if __name__ == "__main__":
-    your_application.run(debug=True)
-
+    app.run(debug=True)
