@@ -3,7 +3,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 your_application = Flask(__name__)
 
-@app.route("/webhook", methods=["POST"])
+@your_application.route("/webhook", methods=["POST"])
 def webhook():
     message_body = request.form.get('Body', '')
     resp = MessagingResponse()
